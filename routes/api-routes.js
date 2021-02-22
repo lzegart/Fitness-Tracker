@@ -3,6 +3,7 @@ const db = require('../models');
 module.exports = (app) => {
 
     app.get('/api/workouts', (req, res) => {
+        console.log("working")
         db.Workout.find({})
         db.Workout.aggregate([
             { $addFields: { totalDuration: {$sum: 'exercises.duration'} } }
@@ -26,7 +27,9 @@ module.exports = (app) => {
         });
     });
 
-    app.put('api/workouts/:id', (req, res) => {
+    app.put('/api/workouts/:id', (req, res) => {
+        console.log(req.body);
+        console.log("I WORK!");
         db.Workout.findByIdAndUpdate(
             req.params.id,
             { $push: {exercises: req.body } },
