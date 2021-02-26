@@ -13,7 +13,7 @@ app.use(express.static('./public'));
 app.use(logger('dev'));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/sheltered-cove-87815", { 
+  process.env.MONGODB_URI || "mongodb://localhost/frozen-brook-31318", { 
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
     useCreateIndex: true,
